@@ -1,0 +1,8 @@
+/* resetar as configurações do css*/
+*{/* seletor univesal */
+    margin: 0; /* serve para criar um espaço externo ao redor de um elemento, afastando-o de outros elementos na página */
+    padding: 0; /* é a propriedade usada para criar um espaçamento interno entre o conteúdo de um elemento e a sua borda */
+    box-sizing: border-box; /* é uma propriedade do CSS que define como a largura (width) e a altura (height) de um elemento são calculadas */
+
+
+}
