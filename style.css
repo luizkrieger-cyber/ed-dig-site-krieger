@@ -1,8 +1,320 @@
-/* resetar as configurações do css*/
-*{/* seletor univesal */
-    margin: 0; /* serve para criar um espaço externo ao redor de um elemento, afastando-o de outros elementos na página */
-    padding: 0; /* é a propriedade usada para criar um espaçamento interno entre o conteúdo de um elemento e a sua borda */
-    box-sizing: border-box; /* é uma propriedade do CSS que define como a largura (width) e a altura (height) de um elemento são calculadas */
+/* ==========================================================================
 
+VARIÁVEIS DE CORES E CONFIGURAÇÕES GERAIS (WCAG Nível AA)
+========================================================================== /
+:root {
+/
+Paleta de cores da empresa com alto contraste garantido:
+- Amarelo (#FFD700) sobre Fundo Escuro (#121212)
+- Texto Branco (#FFFFFF) sobre Fundo Escuro (#121212)
+/
+--cor-fundo-escuro: #121212;
+--cor-fundo-cartao: #1E1E1E;
+--cor-primaria-amarelo: #FFD700;
+--cor-texto-claro: #FFFFFF;
+--cor-texto-escuro: #121212;
+--cor-borda-foco: #00E5FF; / Azul ciano de alto contraste para indicação visual de foco */
 
+--fonte-principal: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+}
+
+/* Reset básico para padronização de box-sizing */
+
+{
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body {
+font-family: var(--fonte-principal);
+background-color: var(--cor-fundo-escuro);
+color: var(--cor-texto-claro);
+line-height: 1.6;
+font-size: 1.125rem; /* 18px para leitura confortável */
+}
+
+/* Container responsivo para limitar a largura do conteúdo */
+.container {
+width: 90%;
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 1rem;
+}
+
+/* Classe utilitária: Oculta visualmente texto exclusivo para leitores de tela */
+.sr-only {
+position: absolute;
+width: 1px;
+height: 1px;
+padding: 0;
+margin: -1px;
+overflow: hidden;
+clip: rect(0, 0, 0, 0);
+white-space: nowrap;
+border: 0;
+}
+
+/* ==========================================================================
+2. ACESSIBILIDADE: FOCO VISUAL E ATALHO DE CONTEÚDO (WCAG 2.4.7 e 2.4.1)
+========================================================================== */
+
+/* Link de atalho que aparece quando focado por teclado */
+.skip-link {
+position: absolute;
+top: -100px;
+left: 10px;
+background-color: var(--cor-primaria-amarelo);
+color: var(--cor-texto-escuro);
+padding: 0.75rem 1.25rem;
+font-weight: bold;
+text-decoration: none;
+z-index: 9999;
+border-radius: 4px;
+}
+
+.skip-link:focus {
+top: 10px;
+}
+
+/*
+WCAG 2.4.7 - Indicador de foco visual claro para navegação via teclado
+*/
+:focus-visible {
+outline: 4px solid var(--cor-borda-foco);
+outline-offset: 3px;
+}
+
+/* ==========================================================================
+3. CABEÇALHO E NAVEGAÇÃO (FLEXBOX)
+========================================================================== */
+.header-site {
+background-color: #000000;
+border-bottom: 3px solid var(--cor-primaria-amarelo);
+padding: 1rem 0;
+}
+
+/* Flexbox: Distribui a logo na esquerda e a navegação na direita */
+.header-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 1.5rem;
+}
+
+.logo-container {
+display: flex;
+align-items: center;
+gap: 0.75rem;
+}
+
+.logo-img {
+max-height: 50px;
+width: auto;
+object-fit: contain;
+}
+
+.nome-empresa {
+font-size: 1.5rem;
+font-weight: bold;
+color: var(--cor-primaria-amarelo);
+text-transform: uppercase;
+}
+
+/* Flexbox: Organiza a lista do menu na horizontal */
+.menu-navegacao {
+display: flex;
+list-style: none;
+gap: 1.5rem;
+}
+
+.menu-navegacao a {
+color: var(--cor-texto-claro);
+text-decoration: none;
+font-weight: 600;
+padding: 0.5rem;
+transition: color 0.2s ease;
+}
+
+.menu-navegacao a:hover {
+color: var(--cor-primaria-amarelo);
+text-decoration: underline;
+}
+
+/* ==========================================================================
+4. CONTEÚDO PRINCIPAL E CARDS DE SERVIÇOS (FLEXBOX)
+========================================================================== */
+main {
+padding: 2rem 0;
+}
+
+section {
+padding: 3rem 0;
+border-bottom: 1px solid #222;
+}
+
+h1, h2, h3 {
+color: var(--cor-primaria-amarelo);
+margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.85rem; }
+h3 { font-size: 1.35rem; }
+
+.texto-destaque {
+font-size: 1.25rem;
+max-width: 800px;
+}
+
+/* Flexbox: Disposição dos cartões em grade dinâmica e flexível */
+.grid-servicos {
+display: flex;
+flex-wrap: wrap;
+gap: 1.5rem;
+margin-top: 2rem;
+}
+
+.card-servico {
+background-color: var(--cor-fundo-cartao);
+border: 2px solid var(--cor-primaria-amarelo);
+border-radius: 8px;
+padding: 1.5rem;
+/* Flexbox: Crescimento proporcional (flex-grow), base inicial flex-basis */
+flex: 1 1 calc(33.333% - 1.5rem);
+min-width: 280px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+.card-servico p {
+margin-bottom: 1.5rem;
+}
+
+/* Simulador de botão de link interativo */
+.btn-acao {
+display: inline-block;
+background-color: var(--cor-primaria-amarelo);
+color: var(--cor-texto-escuro);
+text-align: center;
+padding: 0.75rem 1rem;
+text-decoration: none;
+font-weight: bold;
+border-radius: 4px;
+transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-acao:hover {
+background-color: #E6C200;
+transform: translateY(-2px);
+}
+
+/* ==========================================================================
+5. FORMULÁRIO DE CONTATO (FLEXBOX)
+========================================================================== */
+.formulario-contato {
+display: flex;
+flex-direction: column;
+gap: 1.25rem;
+max-width: 600px;
+margin-top: 2rem;
+}
+
+.campo-grupo {
+display: flex;
+flex-direction: column;
+gap: 0.5rem;
+}
+
+.campo-grupo label {
+font-weight: bold;
+color: var(--cor-texto-claro);
+}
+
+.campo-obrigatorio {
+color: var(--cor-primaria-amarelo);
+}
+
+.campo-grupo input,
+.campo-grupo select,
+.campo-grupo textarea {
+width: 100%;
+padding: 0.85rem;
+border: 2px solid #444;
+background-color: #000000;
+color: var(--cor-texto-claro);
+border-radius: 4px;
+font-size: 1rem;
+font-family: inherit;
+}
+
+.campo-grupo input:focus,
+.campo-grupo select:focus,
+.campo-grupo textarea:focus {
+border-color: var(--cor-primaria-amarelo);
+}
+
+.btn-submit {
+background-color: var(--cor-primaria-amarelo);
+color: var(--cor-texto-escuro);
+border: none;
+padding: 1rem 1.5rem;
+font-size: 1.125rem;
+font-weight: bold;
+border-radius: 4px;
+cursor: pointer;
+align-self: flex-start;
+transition: background-color 0.2s;
+}
+
+.btn-submit:hover {
+background-color: #E6C200;
+}
+
+/* ==========================================================================
+6. RODAPÉ (FLEXBOX) E RESPONSIVIDADE
+========================================================================== */
+.footer-site {
+background-color: #000000;
+border-top: 3px solid var(--cor-primaria-amarelo);
+padding: 2rem 0;
+margin-top: 2rem;
+font-size: 0.95rem;
+}
+
+.footer-container {
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+gap: 0.5rem;
+}
+
+.atendimento-info {
+color: var(--cor-primaria-amarelo);
+}
+
+/* Media Query: Adapta o layout Flexbox para telas menores (Celulares) */
+@media (max-width: 600px) {
+.header-container {
+flex-direction: column;
+align-items: flex-start;
+}
+
+.menu-navegacao {
+flex-direction: column;
+width: 100%;
+gap: 0.5rem;
+}
+
+.menu-navegacao li a {
+display: block;
+padding: 0.5rem 0;
+}
+
+.btn-submit {
+width: 100%;
+}
 }

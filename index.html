@@ -1,160 +1,137 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Título claro e descritivo: essencial para leitores de tela identificarem a página -->
-    <title>Krieger Serviços Gerais | Soluções em Elétrica, Hidráulica e Manutenção</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<!-- 
+  Acessibilidade (WCAG 2.4.1): Link de atalho "Ir para o conteúdo principal".
+  Permite que usuários navegando via teclado pulem o menu e vão direto ao conteúdo principal.
+-->
+<a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
 
-    <!-- 
-      Acessibilidade: Link de atalho "Ir para o conteúdo principal".
-      Permite que usuários de teclado pulem a navegação repetitiva e vão direto ao conteúdo.
-    -->
-    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
-
-    <!-- 
-      <header>: Elemento semântico que define o cabeçalho principal da página.
-      Relação de papel (landmark): banner.
-    -->
-    <header class="header-site">
-        <div class="container header-container">
-            <div class="logo-container">
-                <!-- 
-                  Atributo 'alt' detalhado: descreve a imagem para quem não a vê.
-                  A imagem deve ficar dentro do <body>, nunca fora do <html> como no código original.
-                -->
-                <img src="logo empresa.png" alt="Logo da Krieger Serviços Gerais: estrutura amarela em formato de telhado sobre a letra K" class="logo-img">
-                <span class="nome-empresa">Krieger</span>
-            </div>
-
+<!-- 
+  <header>: Elemento semântico para o cabeçalho do site.
+-->
+<header class="header-site">
+    <div class="container header-container">
+        <div class="logo-container">
             <!-- 
-              <nav>: Elemento semântico para blocos de navegação principal.
-              aria-label: Identifica a função do menu para tecnologias assistivas.
+              Atributo 'alt' detalhado: descreve a imagem para pessoas cegas ou com baixa visão.
             -->
-            <nav aria-label="Navegação Principal">
-                <ul class="menu-navegacao">
-                    <li><a href="#quem-somos">Quem Somos</a></li>
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                </ul>
-            </nav>
+            <img src="logo empresa.png" alt="Logo da Krieger Serviços Gerais: estrutura amarela em formato de telhado sobre a letra K" class="logo-img">
+            <span class="nome-empresa">Krieger</span>
         </div>
-    </header>
-
-    <!-- 
-      <main>: Define o conteúdo principal e exclusivo do documento.
-      id="conteudo-principal": Alvo do link de atalho "skip-link".
-      tabindex="-1": Permite que o elemento receba o foco programmaticamente via link.
-    -->
-    <main id="conteudo-principal" tabindex="-1">
 
         <!-- 
-          <section>: Agrupa conteúdo temático relacionado.
-          aria-labelledby: Conecta a seção ao seu título para melhor contextualização em leitores de tela.
+          <nav>: Elemento semântico de navegação principal.
+          aria-label: Informa a função da área de navegação para tecnologias assistivas.
         -->
-        <section id="quem-somos" class="secao-apresentacao" aria-labelledby="titulo-quem-somos">
-            <div class="container">
-                <!-- 
-                  <h1>: Deve ser o título principal e único da página.
-                -->
-                <h1 id="titulo-quem-somos">Quem Somos</h1>
-                <p class="texto-destaque">
-                    Na <strong>Krieger Serviços Gerais</strong>, somos focados em melhorar o seu dia a dia. Oferecemos soluções práticas, eficientes e seguras para manutenção residencial e comercial em elétrica, hidráulica e reparos estruturais.
-                </p>
-            </div>
-        </section>
+        <nav aria-label="Navegação Principal">
+            <ul class="menu-navegacao">
+                <li><a href="#quem-somos">Quem Somos</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
-        <section id="servicos" class="secao-servicos" aria-labelledby="titulo-servicos">
-            <div class="container">
-                <!-- <h2>: Subtítulos hierárquicos para seções principais -->
-                <h2 id="titulo-servicos">Nossos Serviços</h2>
-                
-                <div class="grid-servicos">
-                    <article class="card-servico">
-                        <h3>Instalações Elétricas</h3>
-                        <p>Manutenção preventiva, reparos em quadros de força, troca de fiação e instalação de iluminação.</p>
-                        <!-- Simulador de botão de link interativo funcional e acessível -->
-                        <a href="#contato" class="btn-acao">Solicitar Orçamento <span class="sr-only">para instalações elétricas</span></a>
-                    </article>
-
-                    <article class="card-servico">
-                        <h3>Manutenção Hidráulica</h3>
-                        <p>Detecção e conserto de vazamentos, troca de torneiras, desentupimentos e instalação de tubulações.</p>
-                        <a href="#contato" class="btn-acao">Solicitar Orçamento <span class="sr-only">para manutenção hidráulica</span></a>
-                    </article>
-
-                    <article class="card-servico">
-                        <h3>Serviços Gerais</h3>
-                        <p>Pequenos reparos, montagem de móveis, instalação de suportes e manutenção preventiva em geral.</p>
-                        <a href="#contato" class="btn-acao">Solicitar Orçamento <span class="sr-only">para serviços gerais</span></a>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="contato" class="secao-contato" aria-labelledby="titulo-contato">
-            <div class="container">
-                <h2 id="titulo-contato">Fale Conosco</h2>
-                <p>Preencha o formulário abaixo para solicitar um orçamento ou tirar dúvidas. Responderemos em breve.</p>
-
-                <!-- 
-                  <form>: Estrutura interativa para envio de dados.
-                  Acessibilidade: Todos os campos possuem labels explicitamente associados via atributo 'for'.
-                -->
-                <form action="#" method="post" class="formulario-contato" novalidate>
-                    
-                    <div class="campo-grupo">
-                        <!-- O atributo 'for' do label DEVE corresponder ao 'id' do input -->
-                        <label for="nome">Nome Completo <span class="campo-obrigatorio" aria-hidden="true">*</span></label>
-                        <input type="text" id="nome" name="nome" required aria-required="true" autocomplete="name">
-                    </div>
-
-                    <div class="campo-grupo">
-                        <label for="email">E-mail de Contato <span class="campo-obrigatorio" aria-hidden="true">*</span></label>
-                        <!-- type="email" aciona o teclado apropriado em dispositivos móveis -->
-                        <input type="email" id="email" name="email" required aria-required="true" autocomplete="email">
-                    </div>
-
-                    <div class="campo-grupo">
-                        <label for="telefone">Telefone / WhatsApp <span class="campo-obrigatorio" aria-hidden="true">*</span></label>
-                        <input type="tel" id="telefone" name="telefone" required aria-required="true" autocomplete="tel">
-                    </div>
-
-                    <div class="campo-grupo">
-                        <label for="servico-interesse">Serviço de Interesse</label>
-                        <select id="servico-interesse" name="servico-interesse">
-                            <option value="">Selecione uma opção...</option>
-                            <option value="eletrica">Elétrica</option>
-                            <option value="hidraulica">Hidráulica</option>
-                            <option value="geral">Serviços Gerais</option>
-                        </select>
-                    </div>
-
-                    <div class="campo-grupo">
-                        <label for="mensagem">Mensagem / Detalhes do Serviço <span class="campo-obrigatorio" aria-hidden="true">*</span></label>
-                        <textarea id="mensagem" name="mensagem" rows="5" required aria-required="true"></textarea>
-                    </div>
-
-                    <button type="submit" class="btn-submit">Enviar Mensagem</button>
-                </form>
-            </div>
-        </section>
-
-    </main>
+<!-- 
+  <main>: Define o conteúdo principal único da página.
+  tabindex="-1": Permite foco programático ao ativar o 'skip-link'.
+-->
+<main id="conteudo-principal" tabindex="-1">
 
     <!-- 
-      <footer>: Define o rodapé do documento ou seção.
-      Contém informações institucionais, direitos autorais e contatos rápidos.
+      <section>: Seção temática de apresentação institucional.
+      aria-labelledby: Associa o título da seção ao leitor de tela.
     -->
-    <footer class="footer-site">
-        <div class="container footer-container">
-            <p>&copy; 2026 Krieger Serviços Gerais. Todos os direitos reservados.</p>
-            <p class="atendimento-info">Atendimento em toda a região | Segunda a Sexta, das 08h às 18h.</p>
+    <section id="quem-somos" class="secao-apresentacao" aria-labelledby="titulo-quem-somos">
+        <div class="container">
+            <!-- <h1>: O título principal e único da página para correta hierarquia -->
+            <h1 id="titulo-quem-somos">Quem Somos</h1>
+            <p class="texto-destaque">
+                Na <strong>Krieger Serviços Gerais</strong>, somos focados em melhorar o seu dia a dia. Oferecemos soluções práticas, eficientes e seguras para manutenção residencial e comercial em elétrica, hidráulica e reparos estruturais.
+            </p>
         </div>
-    </footer>
+    </section>
 
-</body>
-</html>
+    <!-- Seção de Serviços oferecidos -->
+    <section id="servicos" class="secao-servicos" aria-labelledby="titulo-servicos">
+        <div class="container">
+            <!-- <h2>: Subtítulo para a seção principal -->
+            <h2 id="titulo-servicos">Nossos Serviços</h2>
+            
+            <div class="grid-servicos">
+                <!-- <article>: Utilizado para blocos de conteúdo autônomos -->
+                <article class="card-servico">
+                    <h3>Instalações Elétricas</h3>
+                    <p>Manutenção preventiva, reparos em quadros de força, troca de fiação e instalação de iluminação.</p>
+                    <!-- Link com texto oculto extra (.sr-only) para dar contexto em leitores de tela -->
+                    <a href="#contato" class="btn-acao">Solicitar Orçamento <span class="sr-only">para instalações elétricas</span></a>
+                </article>
+
+                <article class="card-servico">
+                    <h3>Manutenção Hidráulica</h3>
+                    <p>Detecção e conserto de vazamentos, troca de torneiras, desentupimentos e instalação de tubulações.</p>
+                    <a href="#contato" class="btn-acao">Solicitar Orçamento <span class="sr-only">para manutenção hidráulica</span></a>
+                </article>
+
+                <article class="card-servico">
+                    <h3>Serviços Gerais</h3>
+                    <p>Pequenos reparos, montagem de móveis, instalação de suportes e manutenção preventiva em geral.</p>
+                    <a href="#contato" class="btn-acao">Solicitar Orçamento <span class="sr-only">para serviços gerais</span></a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção do Formulário de Contato Acessível -->
+    <section id="contato" class="secao-contato" aria-labelledby="titulo-contato">
+        <div class="container">
+            <h2 id="titulo-contato">Fale Conosco</h2>
+            <p>Preencha o formulário abaixo para solicitar um orçamento ou tirar dúvidas. Responderemos em breve.</p>
+
+            <!-- <form>: Formulário com campos rotulados de forma explícita -->
+            <form action="#" method="post" class="formulario-contato" novalidate>
+                
+                <div class="campo-grupo">
+                    <!-- O atributo 'for' do label DEVE ser idêntico ao 'id' do campo correspondente -->
+                    <label for="nome">Nome Completo <span class="campo-obrigatorio" aria-hidden="true">*</span></label>
+                    <input type="text" id="nome" name="nome" required aria-required="true" autocomplete="name">
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="email">E-mail de Contato <span class="campo-obrigatorio" aria-hidden="true">*</span></label>
+                    <input type="email" id="email" name="email" required aria-required="true" autocomplete="email">
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="telefone">Telefone / WhatsApp <span class="campo-obrigatorio" aria-hidden="true">*</span></label>
+                    <input type="tel" id="telefone" name="telefone" required aria-required="true" autocomplete="tel">
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="servico-interesse">Serviço de Interesse</label>
+                    <select id="servico-interesse" name="servico-interesse">
+                        <option value="">Selecione uma opção...</option>
+                        <option value="eletrica">Elétrica</option>
+                        <option value="hidraulica">Hidráulica</option>
+                        <option value="geral">Serviços Gerais</option>
+                    </select>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="mensagem">Mensagem / Detalhes do Serviço <span class="campo-obrigatorio" aria-hidden="true">*</span></label>
+                    <textarea id="mensagem" name="mensagem" rows="5" required aria-required="true"></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+
+</main>
+
+<!-- <footer>: Rodapé com direitos e informações comerciais rápidas -->
+<footer class="footer-site">
+    <div class="container footer-container">
+        <p>&copy; 2026 Krieger Serviços Gerais. Todos os direitos reservados.</p>
+        <p class="atendimento-info">Atendimento em toda a região | Segunda a Sexta, das 08h às 18h.</p>
+    </div>
+</footer>
